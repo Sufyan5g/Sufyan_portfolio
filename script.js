@@ -18,19 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const renderer = new THREE.WebGLRenderer({
         canvas: canvas,
         antialias: true,
-        alpha: true // Make canvas background transparent
+        alpha: true 
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
     // 2. The 3D Object
-    const geometry = new THREE.IcosahedronGeometry(2.5, 1); // Made it slightly bigger
+    const geometry = new THREE.IcosahedronGeometry(2.5, 1);
     const material = new THREE.MeshStandardMaterial({
         color: 0xffffff,
         metalness: 0.6,
         roughness: 0.2,
         wireframe: true,
-        wireframeLinewidth: 2, // Thicker lines
+        wireframeLinewidth: 2,
     });
     const shape = new THREE.Mesh(geometry, material);
     scene.add(shape);
@@ -54,39 +54,51 @@ document.addEventListener('DOMContentLoaded', () => {
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     });
 
-    // 6. SCROLL-BASED ANIMATION (Yahan naya code add kiya gaya hai)
+    // 6. SCROLL-BASED ANIMATION
     let scrollY = window.scrollY;
-
     window.addEventListener('scroll', () => {
         scrollY = window.scrollY;
     });
 
     // 7. Animation Loop
     const clock = new THREE.Clock();
-
     function animate() {
         requestAnimationFrame(animate);
-
         const elapsedTime = clock.getElapsedTime();
-
-        // Base rotation (hamesha chalta rahega)
         shape.rotation.y = 0.1 * elapsedTime;
         shape.rotation.x = 0.05 * elapsedTime;
-
-        // Scroll-based animation
-        // Jaise jaise scroll neeche jayega, object aahista aahista rotate hoga aur scale up hoga
         const scrollRotation = (scrollY / window.innerHeight) * 1.5;
         shape.rotation.z = scrollRotation;
-
         const scrollScale = 1 + (scrollY / (document.body.scrollHeight - window.innerHeight)) * 1.5;
-        // Make sure it doesn't scale infinitely
         if (scrollScale < 2.5) {
              shape.scale.set(scrollScale, scrollScale, scrollScale);
         }
-
         renderer.render(scene, camera);
     }
-
-    // Start the animation
     animate();
+
+    // === NAYA SCRIPT FOR MOBILE MENU ===
+    const nav = document.querySelector('.nav-links');
+    const navToggle = document.querySelector('.mobile-nav-toggle');
+
+    navToggle.addEventListener('click', () => {
+        const isVisible = nav.getAttribute('data-visible');
+
+        if (isVisible === "false" || isVisible === null) {
+            nav.setAttribute('data-visible', true);
+            navToggle.querySelector('i').classList.replace('fa-bars', 'fa-times');
+        } else {
+            nav.setAttribute('data-visible', false);
+            navToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        }
+    });
+
+    // Menu ke link par click karne se menu band ho jaye
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.setAttribute('data-visible', false);
+            navToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+        });
+    });
+
 });
