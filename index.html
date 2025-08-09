@@ -17,19 +17,12 @@
     <header class="main-header">
         <nav class="main-nav">
             <a href="#hero" class="nav-logo">Sufyan.</a>
-            
-            <!-- Desktop Navigation -->
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-
-            <!-- NAYA Burger Menu Button (sirf mobile par nazar aayega) -->
-            <button class="mobile-nav-toggle" aria-label="toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
         </nav>
     </header>
 
@@ -43,7 +36,7 @@
 
     <main class="content-wrapper">
 
-        <!-- About Me Section -->
+        <!-- About Me Section (No Changes) -->
         <section id="about" class="content-section">
             <h2 class="section-title">About Me</h2>
             <div class="about-content">
@@ -53,7 +46,7 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
+        <!-- Skills Section (No Changes) -->
         <section id="skills" class="content-section">
             <h2 class="section-title">My Arsenal of Skills</h2>
             <div class="skills-grid">
@@ -90,61 +83,72 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
+        <!-- === PROJECTS SECTION (MUKAMMAL TAUR PAR NAYA DESIGN BINA IMAGES KE) === -->
         <section id="projects" class="content-section">
-            <h2 class="section-title">Some Things I’ve Built</h2>
-            <div class="projects-showcase">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <a href="#"><img src="https://via.placeholder.com/800x600/1a1a1a/00FFD1?text=Project+Alpha" alt="Project Alpha Screenshot"></a>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-overline">Featured Project</p>
-                        <h3 class="project-title"><a href="#">E-commerce Hub</a></h3>
-                        <div class="project-description">
-                            <p>A full-stack e-commerce platform built with the MERN stack (MongoDB, Express, React, Node.js), featuring user authentication, product management, and a Stripe payment gateway for seamless transactions.</p>
-                        </div>
-                        <ul class="project-tech-list">
-                            <li>React</li>
-                            <li>Node.js</li>
-                            <li>Express</li>
-                            <li>MongoDB</li>
-                            <li>Stripe</li>
-                        </ul>
+            <h2 class="section-title">Things I've Engineered</h2>
+            <div class="projects-grid">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card" tabindex="0">
+                    <div class="project-header">
+                        <i class="fas fa-shopping-cart project-icon"></i>
                         <div class="project-links">
                             <a href="#" aria-label="GitHub Link"><i class="fab fa-github"></i></a>
                             <a href="#" aria-label="External Link"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
+                    <h3 class="project-title">E-commerce Hub</h3>
+                    <p class="project-description">Architected a feature-rich, full-stack e-commerce platform from scratch. Engineered a secure REST API for product management, user authentication, and real-time inventory tracking, integrated with Stripe for secure payment processing.</p>
+                    <ul class="project-tech-list">
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>MongoDB</li>
+                        <li>Stripe API</li>
+                    </ul>
                 </div>
-                <!-- Project 2 (Reversed Layout) -->
-                <div class="project-card project-card-reversed">
-                    <div class="project-image">
-                        <a href="#"><img src="https://via.placeholder.com/800x600/1a1a1a/00FFD1?text=Project+Beta" alt="Project Beta Screenshot"></a>
-                    </div>
-                    <div class="project-content">
-                        <p class="project-overline">Featured Project</p>
-                        <h3 class="project-title"><a href="#">SEO Analytics Dashboard</a></h3>
-                        <div class="project-description">
-                            <p>A custom analytics dashboard for tracking website and YouTube channel SEO performance. Built with Python (Flask) and Chart.js to visualize data pulled from Google Analytics and YouTube APIs.</p>
-                        </div>
-                        <ul class="project-tech-list">
-                            <li>Python</li>
-                            <li>Flask</li>
-                            <li>Chart.js</li>
-                            <li>Google API</li>
-                        </ul>
+
+                <!-- Project Card 2 -->
+                <div class="project-card" tabindex="0">
+                     <div class="project-header">
+                        <i class="fas fa-chart-bar project-icon"></i>
                         <div class="project-links">
                             <a href="#" aria-label="GitHub Link"><i class="fab fa-github"></i></a>
                             <a href="#" aria-label="External Link"><i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
+                    <h3 class="project-title">SEO Analytics Dashboard</h3>
+                    <p class="project-description">Developed a custom data visualization dashboard for a client to monitor website and YouTube channel performance. Leveraged Python and the Google API to fetch and process key metrics, presenting them through interactive charts.</p>
+                    <ul class="project-tech-list">
+                        <li>Python</li>
+                        <li>Flask</li>
+                        <li>Chart.js</li>
+                        <li>Google API</li>
+                    </ul>
                 </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card" tabindex="0">
+                     <div class="project-header">
+                        <i class="fas fa-globe project-icon"></i>
+                        <div class="project-links">
+                            <a href="#" aria-label="GitHub Link"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="External Link"><i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Interactive 3D Portfolio</h3>
+                    <p class="project-description">Designed and built a high-performance, animated portfolio website using Three.js. Focused on creating a smooth user experience with complex 3D animations that are fully responsive and optimized for performance.</p>
+                    <ul class="project-tech-list">
+                        <li>Three.js</li>
+                        <li>JavaScript</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section (No Changes) -->
         <section id="contact" class="content-section">
             <h2 class="section-title">Get In Touch</h2>
             <div class="contact-content">
@@ -167,4 +171,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
-                                                                                                                                                                                                                                             </html>
+                        </html>
