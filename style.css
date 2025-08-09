@@ -5,6 +5,7 @@
     --quantum-accent: #00FFD1; /* Electric Teal */
     --quantum-grey: #aaa;
     --quantum-dark-grey: #1a1a1a;
+    --quantum-border-color: #333;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -15,17 +16,13 @@ body { background-color: var(--quantum-bg); color: var(--quantum-text); font-fam
 #quantum-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; outline: none; z-index: -1; }
 
 /* --- Header & Navigation --- */
-.main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 10; padding: 1.5rem 5%; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 10; padding: 1rem 5%; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .main-nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
 .nav-logo { font-family: 'Space Mono', monospace; font-size: 1.5rem; color: var(--quantum-text); text-decoration: none; font-weight: 700; }
 .nav-logo:hover { color: var(--quantum-accent); }
 .nav-links { list-style: none; display: flex; gap: 2rem; }
 .nav-links a { color: var(--quantum-text); text-decoration: none; font-size: 1rem; transition: color 0.3s ease; }
 .nav-links a:hover { color: var(--quantum-accent); }
-
-/* NAYA Mobile Menu Button */
-.mobile-nav-toggle { display: none; background: transparent; border: none; cursor: pointer; z-index: 999; }
-.mobile-nav-toggle i { font-size: 1.5rem; color: var(--quantum-text); }
 
 /* --- Hero Section --- */
 .theme-quantum-container { height: 100vh; position: relative; z-index: 1; display: grid; place-content: center; }
@@ -41,37 +38,83 @@ body { background-color: var(--quantum-bg); color: var(--quantum-text); font-fam
 .content-section:not(:last-child) { border-bottom: 1px solid #222; }
 .section-title { font-family: 'Space Mono', monospace; font-size: 2.5rem; color: var(--quantum-accent); margin-bottom: 40px; text-align: center; }
 
-/* About Section */
-.about-content h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--quantum-text); }
+/* About & Skills Sections (No Changes) */
+.about-content h3 { font-size: 1.8rem; margin-bottom: 1rem; }
 .about-content p { font-size: 1.1rem; line-height: 1.7; color: var(--quantum-grey); margin-bottom: 1rem; }
-
-/* Skills Section */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
 .skill-card { background: var(--quantum-dark-grey); padding: 2rem; border-radius: 8px; border: 1px solid #222; text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease; }
 .skill-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 255, 209, 0.1); }
 .skill-card i { font-size: 2.5rem; color: var(--quantum-accent); margin-bottom: 1rem; }
-.skill-card h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--quantum-text); }
+.skill-card h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
 .skill-card p { font-size: 0.9rem; color: var(--quantum-grey); line-height: 1.5; }
 
-/* Projects Section */
-.projects-showcase .project-card { display: grid; gap: 20px; grid-template-columns: repeat(12, 1fr); align-items: center; margin-bottom: 100px; }
-.project-image { grid-column: 1 / 8; grid-row: 1 / -1; position: relative; z-index: 1; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px -15px rgba(0,0,0,0.7); }
-.project-image a { display: block; width: 100%; height: 100%; background-color: var(--quantum-accent); }
-.project-image img { width: 100%; height: 100%; object-fit: cover; mix-blend-mode: multiply; filter: grayscale(100%) contrast(1) brightness(90%); transition: all 0.3s ease; }
-.project-image:hover img { mix-blend-mode: normal; filter: none; }
-.project-content { grid-column: 7 / -1; grid-row: 1 / -1; position: relative; z-index: 2; text-align: right; }
-.project-overline { font-family: 'Space Mono', monospace; color: var(--quantum-accent); font-size: 0.9rem; margin-bottom: 10px; }
-.project-title { font-size: 1.8rem; margin-bottom: 20px; }
-.project-title a { color: var(--quantum-text); text-decoration: none; transition: color 0.3s ease; }
-.project-title a:hover { color: var(--quantum-accent); }
-.project-description { background-color: var(--quantum-dark-grey); padding: 25px; border-radius: 8px; box-shadow: 0 10px 30px -15px rgba(0,0,0,0.7); color: var(--quantum-grey); font-size: 1.1rem; line-height: 1.6; }
-.project-tech-list { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 15px; list-style: none; margin: 25px 0 10px; font-family: 'Space Mono', monospace; font-size: 0.9rem; color: var(--quantum-grey); }
-.project-links a { color: var(--quantum-grey); font-size: 1.4rem; margin-left: 15px; transition: color 0.3s ease; }
-.project-links a:hover { color: var(--quantum-accent); }
-.project-card-reversed .project-image { grid-column: 6 / -1; }
-.project-card-reversed .project-content { grid-column: 1 / 7; text-align: left; }
-.project-card-reversed .project-tech-list { justify-content: flex-start; }
-.project-card-reversed .project-links a { margin-left: 0; margin-right: 15px; }
+/* === PROJECTS SECTION (NAYA DESIGN BINA IMAGES KE) === */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+
+.project-card {
+    background-color: var(--quantum-dark-grey);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid var(--quantum-border-color); /* Default border */
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Hover par thora sa upar uthega */
+}
+
+/* YEH CLASS CLICK PAR JAVASCRIPT SE ADD HOGI */
+.project-card.project-active {
+    transform: scale(1.03); /* Thora sa bara hoga */
+    border-color: var(--quantum-accent); /* Border ka rang badal jayega */
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.project-icon {
+    font-size: 2rem;
+    color: var(--quantum-accent);
+}
+
+.project-links a {
+    color: var(--quantum-grey);
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+    color: var(--quantum-accent);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--quantum-text);
+}
+
+.project-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--quantum-grey);
+    margin-bottom: 1.5rem;
+}
+
+.project-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--quantum-grey);
+}
 
 /* Contact Section */
 .contact-content { text-align: center; }
@@ -85,68 +128,19 @@ body { background-color: var(--quantum-bg); color: var(--quantum-text); font-fam
 /* Footer */
 .main-footer { text-align: center; padding: 2rem 5%; background: var(--quantum-dark-grey); color: var(--quantum-grey); font-size: 0.9rem; position: relative; z-index: 1; }
 
-/* === NAYA RESPONSIVE CODE (Mobile Friendly) === */
+/* === RESPONSIVE CODE (BINA BURGER MENU KE) === */
 @media (max-width: 768px) {
-    /* Mobile Menu ko Show/Hide karna */
-    .nav-links {
-        position: fixed;
-        inset: 0 0 0 30%; /* Right side se 70% area cover karega */
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 3rem;
-        background: rgba(10, 25, 47, 0.9);
-        backdrop-filter: blur(10px);
-        transform: translateX(100%);
-        transition: transform 350ms ease-out;
-    }
-
-    .nav-links[data-visible="true"] {
-        transform: translateX(0%);
-    }
-
-    .nav-links a {
-        font-size: 1.5rem;
-    }
-
-    .mobile-nav-toggle {
-        display: block; /* Sirf mobile par nazar aayega */
-    }
-
-    /* Projects Section ko mobile ke liye adjust karna */
-    .projects-showcase .project-card,
-    .projects-showcase .project-card-reversed {
-        display: block;
-        box-shadow: 0 10px 30px -15px rgba(0,0,0,0.7);
-        border-radius: 8px;
-        background-color: var(--quantum-dark-grey);
-        overflow: hidden;
-    }
-    .project-image {
-        grid-column: auto;
-        height: 250px;
-    }
-    .project-content {
-        grid-column: auto;
-        text-align: left;
-        padding: 30px 25px;
-    }
-    .project-description {
-        background-color: transparent;
-        padding: 0;
-        box-shadow: none;
-        margin-top: 15px;
-    }
-    .project-tech-list,
-    .project-card-reversed .project-tech-list {
-        justify-content: flex-start;
-    }
-    .project-links a,
-    .project-card-reversed .project-links a {
-        margin-left: 0;
-        margin-right: 15px;
-    }
-    .section-title {
-        font-size: 2rem;
-    }
+    /* Navigation ko mobile par adjust karna */
+    .main-header { padding: 1rem 5%; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.9rem; }
+    
+    .section-title { font-size: 2rem; }
+    .content-section { padding: 80px 5%; }
 }
+
+@media (max-width: 480px) {
+    /* Bohat choti screens ke liye */
+    .nav-links { gap: 0.75rem; }
+    .nav-links a { font-size: 0.8rem; }
+              }
