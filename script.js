@@ -1,23 +1,28 @@
-// --- Initialize Swup.js for Page Transitions ---
-const swup = new Swup();
+// This function contains all the scripts that need to be re-initialized on every page change.
+// We create this function to make our code work with Swup.js page transitions.
+function initializeWebsite() {
 
-// This function will run for all scripts that need to be re-initialized on page load
-function init() {
     // --- Initialize AOS (Animate on Scroll) ---
+    // This library handles the fade-in animations as you scroll down.
     AOS.init({
-        duration: 1000,
-        once: true,
-        offset: 50,
+        duration: 800, // Animation duration in milliseconds
+        once: true,    // Animation happens only once per element
+        offset: 50,    // Trigger animation when element is 50px into the viewport
     });
 
     // --- Custom Cursor Logic ---
     const cursor = document.querySelector('.cursor');
+    // Only run this code if the cursor element exists on the page.
     if (cursor) {
         const interactiveElements = document.querySelectorAll('a, button, .magnetic-link, .portfolio-item, .faq-question');
+        
         document.addEventListener('mousemove', (e) => {
+            // Move the custom cursor to follow the mouse
             cursor.style.left = e.clientX + 'px';
             cursor.style.top = e.clientY + 'px';
         });
+        
+        // Add a "hovered" class to the cursor when it's over an interactive element
         interactiveElements.forEach(link => {
             link.addEventListener('mouseenter', () => cursor.classList.add('hovered'));
             link.addEventListener('mouseleave', () => cursor.classList.remove('hovered'));
@@ -26,95 +31,91 @@ function init() {
 
     // --- Magnetic Buttons/Links Logic ---
     const magneticLinks = document.querySelectorAll('.magnetic-link');
+    // Only run if magnetic links exist on the current page.
     if (magneticLinks.length > 0) {
-        const moveAmount = 25;
+        const moveAmount = 20; // How strongly the element follows the cursor
         magneticLinks.forEach(link => {
             link.addEventListener('mousemove', (e) => {
-                const { offsetX: x, offsetY: y } = e;
-                const { offsetWidth: width, offsetHeight: height } = link;
+                const { offsetX: x, offsetY: y, target } = e;
+                const { offsetWidth: width, offsetHeight: height } = target;
+                
+                // Calculate the movement based on cursor position inside the element
                 const xMove = (x / width * (moveAmount * 2)) - moveAmount;
                 const yMove = (y / height * (moveAmount * 2)) - moveAmount;
-                link.style.transform = `translate(${xMove}px, ${yMove}px)`;
+                
+                target.style.transform = `translate(${xMove}px, ${yMove}px)`;
             });
-            link.addEventListener('mouseleave', () => {
-                link.style.transform = '';
+            // Reset position when the mouse leaves
+            link.addEventListener('mouseleave', (e) => {
+                e.target.style.transform = '';
             });
         });
     }
 
-    // --- Typewriter Effect Logic (Only runs if element exists on page) ---
+    // --- Typewriter Effect Logic ---
     const typewriterElement = document.querySelector('.typewriter');
+    // Only run if the typewriter element exists on the current page.
     if (typewriterElement) {
         const words = ["AI Master.", "SEO Specialist.", "Web Developer."];
         let wordIndex = 0, letterIndex = 0, isDeleting = false;
+        
         function type() {
             const currentWord = words[wordIndex];
             if (isDeleting) {
+                // Deleting text
                 typewriterElement.textContent = currentWord.substring(0, letterIndex - 1);
                 letterIndex--;
             } else {
+                // Typing text
                 typewriterElement.textContent = currentWord.substring(0, letterIndex + 1);
                 letterIndex++;
             }
+            
             let typeSpeed = isDeleting ? 75 : 150;
+
             if (!isDeleting && letterIndex === currentWord.length) {
-                typeSpeed = 2000; isDeleting = true;
+                // Pause at the end of a word
+                typeSpeed = 2000; 
+                isDeleting = true;
             } else if (isDeleting && letterIndex === 0) {
-                isDeleting = false; wordIndex = (wordIndex + 1) % words.length; typeSpeed = 500;
+                // Move to the next word after deleting
+                isDeleting = false; 
+                wordIndex = (wordIndex + 1) % words.length; 
+                typeSpeed = 500;
             }
+            
             setTimeout(type, typeSpeed);
         }
-        type();
-    }
-    
-    // --- FAQ Accordion Logic (If exists on page) ---
-     const faqItems = document.querySelectorAll('.faq-item');
-    if (faqItems.length > 0) {
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            question.addEventListener('click', () => {
-                const answer = item.querySelector('.faq-answer');
-                const isOpen = question.classList.contains('active');
-                faqItems.forEach(otherItem => {
-                    otherItem.querySelector('.faq-question').classList.remove('active');
-                    otherItem.querySelector('.faq-answer').style.maxHeight = '0px';
-                });
-                if (!isOpen) {
-                    question.classList.add('active');
-                    answer.style.maxHeight = answer.scrollHeight + 'px';
-                }
-            });
-        });
-    }
-
-    // --- Header Scroll Effect ---
-    const header = document.querySelector('header');
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.style.background = 'rgba(18, 18, 18, 0.9)';
-                header.style.boxShadow = '0 5px 15px rgba(0,0,0,0.2)';
-            } else {
-                header.style.background = 'rgba(18, 18, 18, 0.8)';
-                header.style.boxShadow = 'none';
-            }
-        });
+        type(); // Start the typing effect
     }
 }
 
-// --- Initial Load ---
+
+// --- MAIN EXECUTION: This part controls the flow ---
+
+// This event fires when the initial HTML document has been completely loaded.
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Preloader Logic ---
+
+    // 1. Handle the Preloader
     const preloader = document.querySelector('.preloader');
-    if(preloader) {
+    if (preloader) {
+        // Hide the preloader after a short delay to ensure a smooth experience.
         setTimeout(() => {
             preloader.classList.add('hidden');
-        }, 1200); // Hide after 1.2 seconds
+        }, 1000); // 1-second delay
     }
-    
-    // Run all initialization scripts
-    init();
-});
 
-// --- After Swup changes the page, re-run the init function ---
-swup.on('contentReplaced', init);
+    // 2. Initialize all website scripts for the first time.
+    initializeWebsite();
+
+    // 3. Setup Swup.js for smooth page transitions.
+    try {
+        const swup = new Swup();
+        // This is the most important part:
+        // After Swup replaces the content of a page, we MUST re-run our scripts.
+        swup.on('contentReplaced', initializeWebsite);
+    } catch (e) {
+        // If Swup.js library is not included in the HTML, this will prevent the site from crashing.
+        console.error("Swup.js library not found. Page transitions will not work.");
+    }
+});
