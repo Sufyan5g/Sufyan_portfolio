@@ -1,35 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
-    <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Sufyan | AI & SEO Strategist</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Sufyan | Digital Architect</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"> <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="preloader"><div class="preloader-logo">S.</div></div> <div class="cursor"></div>
-    <header>
-        <nav>
-            <a href="index.html" class="logo magnetic-link">Sufyan.</a>
-            <ul> <li><a href="about.html">About</a></li> <li><a href="services.html">Services</a></li> <li><a href="portfolio.html">Portfolio</a></li> <li><a href="contact.html" class="btn-contact">Contact Me</a></li> </ul>
+
+    <canvas id="quantum-canvas"></canvas>
+
+    <header class="main-header">
+        <nav class="main-nav">
+            <a href="#hero" class="nav-logo">Sufyan.</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    <main id="swup" class="transition-fade">
-        <section class="hero">
-            <div class="hero-content" data-aos="fade-up">
-                <h1 class="hero-title">Muhammad Sufyan</h1>
-                <p class="hero-subtitle">I am an <span class="typewriter"></span></p>
-                <p class="hero-description">I build intelligent digital solutions that drive growth and dominate search rankings.</p>
-                <a href="portfolio.html" class="btn-primary magnetic-link">View My Work</a>
+
+    <section id="hero" class="theme-quantum-container">
+        <div class="quantum-overlay">
+            <h1 class="quantum-title">Sufyan.</h1>
+            <p class="quantum-subtitle">I don't just write code.<br>I architect the digital universe.</p>
+            <div class="quantum-scroll-indicator">Scroll to Explore</div>
+        </div>
+    </section>
+
+    <main class="content-wrapper">
+
+        <!-- About Me Section -->
+        <section id="about" class="content-section">
+            <h2 class="section-title"><span>01.</span> About Me</h2>
+            <div class="glass-container about-content">
+                <div class="about-text">
+                    <h3>Muhammad Sufyan: Developer & Digital Creator</h3>
+                    <p>
+                        A passionate and results-driven Full-Stack Developer, Freelancer, and digital content creator. My journey in technology is fueled by a relentless curiosity to solve complex problems and build amazing things on the web. From crafting elegant front-end experiences to engineering robust back-end systems, I thrive on turning ideas into reality.
+                    </p>
+                    <p>
+                        Beyond coding, I am a YouTuber where I share my knowledge about web development and SEO, helping others navigate the digital landscape. My goal is to not only build great software but also to empower the community.
+                    </p>
+                </div>
             </div>
         </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="content-section">
+            <h2 class="section-title"><span>02.</span> My Arsenal of Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <i class="fas fa-code"></i>
+                    <h4>Full-Stack Development</h4>
+                    <p>Building seamless applications from front-end (React, Vue) to back-end (Node.js, Python).</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-rocket"></i>
+                    <h4>Freelancing</h4>
+                    <p>Delivering high-quality, on-time solutions for clients across the globe on various platforms.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fab fa-youtube"></i>
+                    <h4>YouTube & Content</h4>
+                    <p>Creating engaging tutorials and tech content, managing a channel from script to screen.</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>SEO Expertise</h4>
+                    <p>Optimizing websites and videos for Google & YouTube to maximize reach and visibility.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="content-section">
+            <h2 class="section-title"><span>03.</span> Featured Projects</h2>
+            <div class="projects-grid">
+                <a href="#" class="project-card">
+                    <h4>Project Alpha: E-commerce Hub</h4>
+                    <p>A full-stack e-commerce platform built with the MERN stack, featuring user authentication, product management, and a Stripe payment gateway.</p>
+                    <div class="project-tags">
+                        <span>React</span><span>Node.js</span><span>MongoDB</span><span>Stripe</span>
+                    </div>
+                </a>
+                <a href="#" class="project-card">
+                    <h4>Project Beta: SEO Dashboard</h4>
+                    <p>A custom analytics dashboard for tracking website and YouTube channel SEO performance. Built with Python (Flask) and Chart.js to visualize data.</p>
+                     <div class="project-tags">
+                        <span>Python</span><span>Flask</span><span>API</span><span>SEO</span>
+                    </div>
+                </a>
+                <a href="#" class="project-card">
+                    <h4>Project Gamma: Freelancer Portal</h4>
+                    <p>A responsive portfolio website for a client, designed to showcase their work and attract new freelance opportunities. Focused on performance and a clean UI/UX.</p>
+                     <div class="project-tags">
+                        <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Three.js</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="content-section">
+            <h2 class="section-title"><span>04.</span> What's Next?</h2>
+            <div class="glass-container contact-content">
+                <h3>Get In Touch</h3>
+                <p>Have a project in mind, a question about my work, or just want to connect? My inbox is always open. Let's build something amazing together.</p>
+                <a href="mailto:youremail@example.com" class="cta-button">Say Hello</a>
+                <div class="social-links">
+                    <a href="#" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </section>
+
     </main>
-    <footer>
-        <p>&copy; 2024 Muhammad Sufyan. All Rights Reserved.</p>
-        <div class="social-links"> <a href="#"><i class="fab fa-linkedin"></i></a> <a href="#"><i class="fab fa-github"></i></a> <a href="#"><i class="fab fa-youtube"></i></a> </div>
+    
+    <footer class="main-footer">
+        <p>Designed & Built by Muhammad Sufyan</p>
     </footer>
-    <script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
 </body>
-</html>
+                </html>
