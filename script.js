@@ -77,27 +77,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animate();
 
-    // === NAYA SCRIPT FOR MOBILE MENU ===
-    const nav = document.querySelector('.nav-links');
-    const navToggle = document.querySelector('.mobile-nav-toggle');
+    // === NAYA SCRIPT FOR PROJECTS CLICK EFFECT ===
+    const projectCards = document.querySelectorAll('.project-card');
 
-    navToggle.addEventListener('click', () => {
-        const isVisible = nav.getAttribute('data-visible');
-
-        if (isVisible === "false" || isVisible === null) {
-            nav.setAttribute('data-visible', true);
-            navToggle.querySelector('i').classList.replace('fa-bars', 'fa-times');
-        } else {
-            nav.setAttribute('data-visible', false);
-            navToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
-        }
-    });
-
-    // Menu ke link par click karne se menu band ho jaye
-    nav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            nav.setAttribute('data-visible', false);
-            navToggle.querySelector('i').classList.replace('fa-times', 'fa-bars');
+    projectCards.forEach(card => {
+        card.addEventListener('click', () => {
+            // Pehle sab cards se 'project-active' class hatao
+            projectCards.forEach(c => c.classList.remove('project-active'));
+            
+            // Phir jis par click hua hai, us par add karo
+            card.classList.add('project-active');
         });
     });
 
