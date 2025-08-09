@@ -1,0 +1,102 @@
+/* ===================================================================
+   PORTFOLIO WEBSITE STYLESHEET - V3.0 (COMPLETE REBUILD)
+====================================================================== */
+
+/* --- 1. Basic Setup & Global Variables --- */
+:root {
+    --bg-color: #121212;
+    --primary-color: #1a1a1a;
+    --accent-color: #00bfff;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --border-color: #2a2a2a;
+    --font-family: 'Poppins', sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-family); background-color: var(--bg-color); color: var(--text-color); line-height: 1.7; cursor: none; }
+a, button { cursor: none; text-decoration: none;}
+h1, h2, h3, h4 { color: var(--heading-color); font-weight: 600; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+section { padding: 6rem 0; }
+
+/* --- 2. Reusable Components --- */
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; position: relative; }
+.section-title::after { content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); width: 80px; height: 4px; background: var(--accent-color); border-radius: 2px; }
+.btn-primary { display: inline-block; background: var(--accent-color); color: #ffffff; padding: 12px 28px; border-radius: 50px; font-weight: 600; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0, 191, 255, 0.2); }
+
+/* --- 3. Elite Features (Preloader, Cursor, Transitions) --- */
+.preloader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--bg-color); z-index: 10000; display: flex; justify-content: center; align-items: center; transition: opacity 0.8s ease, visibility 0.8s ease; }
+.preloader-logo { font-size: 3rem; font-weight: 700; color: var(--accent-color); animation: pulse 1.5s infinite ease-in-out; }
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.7; } }
+.preloader.hidden { opacity: 0; visibility: hidden; }
+.cursor { width: 20px; height: 20px; border: 2px solid var(--accent-color); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transition: transform 0.1s ease-out, width 0.2s ease, height 0.2s ease, background-color 0.2s ease; transform: translate(-50%, -50%); }
+.cursor.hovered { width: 50px; height: 50px; background-color: rgba(0, 191, 255, 0.2); border: 2px solid transparent; }
+main.transition-fade { transition: opacity 0.4s ease-in-out; }
+html.is-animating main.transition-fade { opacity: 0; }
+
+/* --- 4. Header & Footer --- */
+header { position: fixed; width: 100%; top: 0; left: 0; z-index: 1000; background: rgba(18, 18, 18, 0.8); backdrop-filter: blur(10px); padding: 1rem 0; transition: background 0.3s ease, box-shadow 0.3s ease; }
+nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.logo { font-size: 1.8rem; font-weight: 700; color: var(--heading-color); }
+nav ul { list-style: none; display: flex; align-items: center; gap: 2rem; }
+nav ul li a { color: var(--text-color); font-weight: 400; }
+nav ul li a.btn-contact { border: 2px solid var(--accent-color); padding: 8px 20px; border-radius: 50px; color: var(--accent-color); }
+nav ul li a.btn-contact:hover { background: var(--accent-color); color: #fff; }
+footer { padding: 2rem 0; text-align: center; background: var(--bg-color); border-top: 1px solid var(--border-color); }
+.social-links { margin-top: 1rem; }
+.social-links a { font-size: 1.5rem; margin: 0 0.75rem; color: var(--text-color); }
+
+/* --- 5. Page-Specific Sections --- */
+.page-header { padding: 10rem 0 5rem 0; text-align: center; background: linear-gradient(rgba(18,18,18,0.9), rgba(18,18,18,0.9)), url('images/hero-bg.jpg') no-repeat center center/cover; }
+.page-header h1 { font-size: 3rem; }
+.hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(18,18,18,0.8), rgba(18,18,18,0.8)), url('images/hero-bg.jpg') no-repeat center center/cover; }
+.hero-title { font-size: 4rem; }
+.hero-subtitle { font-size: 1.5rem; }
+.hero-description { max-width: 600px; margin: 1rem auto 2rem auto; }
+.typewriter::after { content: '|'; animation: blink 0.7s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.about-me .about-content { display: flex; align-items: center; gap: 3rem; }
+.about-me .about-image { flex-basis: 300px; }
+.about-me .about-image img { max-width: 100%; border-radius: 15px; }
+.service-detailed-card { background: var(--primary-color); padding: 2rem; margin-bottom: 2rem; border-radius: 10px; border-left: 4px solid var(--accent-color); display: flex; gap: 2rem; align-items: center; }
+.service-detailed-icon { font-size: 3rem; color: var(--accent-color); }
+.contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+.contact-info ul { list-style: none; }
+.contact-info li { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
+.contact-info i { font-size: 1.5rem; color: var(--accent-color); }
+.contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+.contact-form input, .contact-form textarea { width: 100%; padding: 1rem; border: 1px solid var(--border-color); background: var(--bg-color); border-radius: 5px; color: var(--text-color); }
+.faq { background: var(--bg-color); }
+.faq-accordion { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border-color); }
+.faq-question { width: 100%; display: flex; justify-content: space-between; align-items: center; background: none; border: none; color: var(--heading-color); font-size: 1.2rem; text-align: left; padding: 1.5rem 0; }
+.faq-question i { transition: transform 0.3s ease; }
+.faq-question.active i { transform: rotate(180deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
+.faq-answer p { padding: 0 0 1.5rem 0; }
+.case-study-content { padding: 4rem 0; }
+.case-study-hero-image { width: 100%; border-radius: 10px; margin-bottom: 2rem; }
+.case-study-details { display: flex; gap: 2rem; padding: 1.5rem; background: var(--primary-color); border-radius: 10px; margin-bottom: 3rem; flex-wrap: wrap; }
+.case-study-section h2 { font-size: 2rem; color: var(--accent-color); margin-bottom: 1rem; }
+
+/* --- 6. NEW PORTFOLIO SHOWCASE DESIGN --- */
+.portfolio-showcase { border-top: 1px solid var(--border-color); }
+.project-entry { display: flex; justify-content: space-between; align-items: center; padding: 3rem 2rem; border-bottom: 1px solid var(--border-color); color: var(--heading-color); position: relative; overflow: hidden; transition: color 0.4s ease; }
+.project-entry .project-entry-bg { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-size: cover; background-position: center; z-index: -1; opacity: 0; transition: opacity 0.5s ease, transform 0.5s ease; }
+.project-entry:hover .project-entry-bg { opacity: 0.15; transform: scale(1.05); }
+.project-entry:hover { color: var(--accent-color); }
+.project-entry h3 { font-size: 2.5rem; font-weight: 600; z-index: 1; }
+.project-entry p { font-size: 1rem; color: var(--text-color); z-index: 1; }
+
+/* --- 7. Responsive Design --- */
+@media (max-width: 768px) {
+    body, a, button { cursor: auto; }
+    .cursor { display: none; }
+    nav ul { display: none; }
+    .page-header h1, .hero-title { font-size: 2.5rem; }
+    .about-me .about-content, .contact-container { flex-direction: column; grid-template-columns: 1fr; }
+    .project-entry { flex-direction: column; align-items: flex-start; gap: 0.5rem; padding: 2rem 1rem; }
+    .project-entry h3 { font-size: 1.8rem; }
+}
