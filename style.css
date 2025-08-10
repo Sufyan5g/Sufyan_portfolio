@@ -2,7 +2,7 @@
 :root {
     --quantum-bg: #000000;
     --quantum-text: #FFFFFF;
-    --quantum-accent: #00FFD1;
+    --quantum-accent: #00FFD1; /* Electric Teal */
     --quantum-grey: #aaa;
     --quantum-dark-grey: #1a1a1a;
     --quantum-border-color: #333;
@@ -12,18 +12,8 @@
 html { scroll-behavior: smooth; }
 body { background-color: var(--quantum-bg); color: var(--quantum-text); font-family: 'Inter', sans-serif; overflow-x: hidden; }
 
-/* --- BACKGROUND CANVASES LAYERING --- */
-#quantum-canvas, #title-effects-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    outline: none;
-    pointer-events: none;
-}
-#title-effects-canvas { z-index: -2; }
-#quantum-canvas { z-index: -1; }
+/* --- 3D Canvas Background --- */
+#quantum-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; outline: none; z-index: -1; }
 
 /* --- Header & Navigation --- */
 .main-header { position: fixed; top: 0; left: 0; width: 100%; z-index: 10; padding: 1rem 5%; background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
@@ -46,17 +36,9 @@ body { background-color: var(--quantum-bg); color: var(--quantum-text); font-fam
 .content-wrapper { position: relative; z-index: 1; background: transparent; }
 .content-section { max-width: 1000px; margin: 0 auto; padding: 100px 5%; }
 .content-section:not(:last-child) { border-bottom: 1px solid #222; }
-.section-title { 
-    font-family: 'Space Mono', monospace; 
-    font-size: 2.5rem; 
-    color: var(--quantum-accent); 
-    margin-bottom: 40px; 
-    text-align: center;
-    position: relative;
-    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.9);
-}
+.section-title { font-family: 'Space Mono', monospace; font-size: 2.5rem; color: var(--quantum-accent); margin-bottom: 40px; text-align: center; }
 
-/* --- Baaki ka CSS --- */
+/* About & Skills Sections */
 .about-content h3 { font-size: 1.8rem; margin-bottom: 1rem; }
 .about-content p { font-size: 1.1rem; line-height: 1.7; color: var(--quantum-grey); margin-bottom: 1rem; }
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
@@ -65,17 +47,75 @@ body { background-color: var(--quantum-bg); color: var(--quantum-text); font-fam
 .skill-card i { font-size: 2.5rem; color: var(--quantum-accent); margin-bottom: 1rem; }
 .skill-card h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
 .skill-card p { font-size: 0.9rem; color: var(--quantum-grey); line-height: 1.5; }
+
+/* === PROJECTS SECTION (NAYA DESIGN BINA IMAGES KE) === */
 .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-.project-card { background-color: var(--quantum-dark-grey); padding: 2rem; border-radius: 8px; border: 2px solid var(--quantum-border-color); cursor: pointer; transition: transform 0.3s ease, border-color 0.3s ease; }
-.project-card:hover { transform: translateY(-5px); }
-.project-card.project-active { transform: scale(1.03); border-color: var(--quantum-accent); }
-.project-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-.project-icon { font-size: 2rem; color: var(--quantum-accent); }
-.project-links a { color: var(--quantum-grey); font-size: 1.2rem; margin-left: 1rem; transition: color 0.3s ease; }
-.project-links a:hover { color: var(--quantum-accent); }
-.project-title { font-size: 1.5rem; margin-bottom: 1rem; color: var(--quantum-text); }
-.project-description { font-size: 1rem; line-height: 1.6; color: var(--quantum-grey); margin-bottom: 1.5rem; }
-.project-tech-list { display: flex; flex-wrap: wrap; gap: 1rem; list-style: none; font-family: 'Space Mono', monospace; font-size: 0.9rem; color: var(--quantum-grey); }
+
+.project-card {
+    background-color: var(--quantum-dark-grey);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid var(--quantum-border-color); /* Default border */
+    cursor: pointer;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Hover par thora sa upar uthega */
+}
+
+.project-card.project-active {
+    transform: scale(1.03); /* Thora sa bara hoga */
+    border-color: var(--quantum-accent); /* Border ka rang badal jayega */
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.project-icon {
+    font-size: 2rem;
+    color: var(--quantum-accent);
+}
+
+.project-links a {
+    color: var(--quantum-grey);
+    font-size: 1.2rem;
+    margin-left: 1rem;
+    transition: color 0.3s ease;
+}
+
+.project-links a:hover {
+    color: var(--quantum-accent);
+}
+
+.project-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--quantum-text);
+}
+
+.project-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--quantum-grey);
+    margin-bottom: 1.5rem;
+}
+
+.project-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--quantum-grey);
+}
+
+/* Contact Section */
 .contact-content { text-align: center; }
 .contact-content p { max-width: 600px; margin: 0 auto 30px auto; color: var(--quantum-grey); }
 .cta-button { display: inline-block; background: var(--quantum-accent); color: var(--quantum-bg); padding: 15px 30px; border-radius: 5px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
@@ -83,54 +123,23 @@ body { background-color: var(--quantum-bg); color: var(--quantum-text); font-fam
 .social-links { margin-top: 40px; }
 .social-links a { color: var(--quantum-grey); font-size: 1.5rem; margin: 0 15px; transition: color 0.3s ease, transform 0.3s ease; }
 .social-links a:hover { color: var(--quantum-accent); transform: translateY(-5px); }
+
+/* Footer */
 .main-footer { text-align: center; padding: 2rem 5%; background: var(--quantum-dark-grey); color: var(--quantum-grey); font-size: 0.9rem; position: relative; z-index: 1; }
 
-
-/* === NAYA CODE START: BEHTAR MOBILE RESPONSIVE CODE === */
-
-/* Tablets aur bare phones ke liye (768px se kam) */
+/* === RESPONSIVE CODE (BINA BURGER MENU KE) === */
 @media (max-width: 768px) {
-    .content-section {
-        padding: 80px 5%;
-    }
-    .section-title {
-        font-size: 2.2rem; /* Title thora chota */
-    }
-    .nav-links {
-        gap: 1.5rem; /* Links ke darmiyan space kam */
-    }
-    .skill-card, .project-card {
-        padding: 1.5rem; /* Cards ke andar space kam */
-    }
+    /* Navigation ko mobile par adjust karna */
+    .main-header { padding: 1rem 5%; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.9rem; }
+    
+    .section-title { font-size: 2rem; }
+    .content-section { padding: 80px 5%; }
 }
 
-/* Chote mobile phones ke liye (480px se kam) */
 @media (max-width: 480px) {
-    .content-section {
-        padding: 60px 20px; /* oopar-neeche aur side se space kam */
-    }
-    .section-title {
-        font-size: 1.8rem; /* Title aur chota */
-        line-height: 1.3; /* Line height behtar banane ke liye */
-    }
-    .nav-links a {
-        font-size: 0.8rem; /* Menu ke links aur chote */
-    }
-    .nav-links {
-        gap: 1rem;
-    }
-    .about-content h3 {
-        font-size: 1.5rem;
-    }
-    .about-content p {
-        font-size: 1rem;
-    }
-    .cta-button {
-        padding: 12px 24px;
-        font-size: 1rem;
-    }
-    .social-links a {
-        margin: 0 12px;
-    }
-}
-/* === NAYA CODE END === */
+    /* Bohat choti screens ke liye */
+    .nav-links { gap: 0.75rem; }
+    .nav-links a { font-size: 0.8rem; }
+                   }
