@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const titles = document.querySelectorAll('.section-title');
         let particles = [];
-        // === FINAL CODE: Original Accent Color istemal karein ===
         const glowColor = getComputedStyle(document.documentElement).getPropertyValue('--quantum-accent').trim() || '#00FFD1';
 
         class Particle {
@@ -20,9 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.y = y;
                 this.ymax = ymax;
                 this.speed = 1 + Math.random() * 2;
-                this.life = 60 + Math.random() * 60; // Thori zyada life taake trail lambi ho
+                this.life = 60 + Math.random() * 60;
                 this.originalLife = this.life;
-                // === FINAL CODE: Zyada chamak ke liye size mein variation ===
                 this.radius = 1.5 + Math.random() * 2; 
             }
 
@@ -34,26 +32,25 @@ document.addEventListener('DOMContentLoaded', () => {
             draw() {
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                
-                // === FINAL CODE: Enhanced Glow aur Lighting Effect ===
                 ctx.shadowColor = glowColor;
-                ctx.shadowBlur = 20; // Zyada blur = zyada glow
-                ctx.globalAlpha = this.life / this.originalLife; // Start mein poori tarah bright
+                ctx.shadowBlur = 20;
+                ctx.globalAlpha = this.life / this.originalLife;
                 ctx.fillStyle = glowColor;
-                
                 ctx.fill();
             }
         }
 
         function animate() {
-            // Motion blur effect
             ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
             ctx.fillRect(0, 0, width, height);
 
             titles.forEach(title => {
                 const rect = title.getBoundingClientRect();
                 if (rect.top < height && rect.bottom > 0) {
-                    for (let i = 0; i < 2; i++) {
+                    
+                    // === CHANGE: Particles ki tadad kam karne ke liye 2 se 1 kar diya ===
+                    // Ab effect zyada subtle aur professional lagega.
+                    for (let i = 0; i < 1; i++) {
                         const x = rect.left + Math.random() * rect.width;
                         const y = rect.top + Math.random() * (rect.height / 2);
                         const ymax = rect.bottom + 50;
